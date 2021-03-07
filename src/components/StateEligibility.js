@@ -75,37 +75,36 @@ export default function StateEligibility() {
                 </AccordionSummary>
                 <AccordionDetails className={classes.accordionDetails}>
                     <List>
-                        {criteriaGroups.map((g, idx) => {
+                        {criteriaGroups.map((group, index) => {
                             return (
                                 // https://reactjs.org/docs/reconciliation.html#recursing-on-children
                                 // "The key only has to be unique among its siblings, not globally unique"
                                 // However the interaction with fragments is unclear, so ensure
                                 // title fragments and listitems are unique, as they are siblings.
-                                <React.Fragment key={"title" + idx}>
-                                    {
-                                        // We don't display a title for the first group, for some reason...
-                                        g.title ? (
-                                            <>
-                                                <br />
-                                                <br />
-                                                <div>{g.title}</div>
-                                                <br />
-                                            </>
-                                        ) : null
-                                    }
+                                <React.Fragment key={"title" + index}>
+                                    // We don't display a title for the first
+				    // group, for some reason...
+                                    {group.title ? (
+                                        <>
+                                            <br />
+                                            <br />
+                                            <div>{group.title}</div>
+                                            <br />
+                                        </>
+                                    ) : null}
                                     {
                                         //
-                                        g.list.map((crit, idx) => (
-                                            <ListItem key={"item" + idx}>
+                                        group.list.map((criterion, index) => (
+                                            <ListItem key={"item" + index}>
                                                 <ListItemIcon>
                                                     <PeopleIcon />
                                                 </ListItemIcon>
                                                 <a
-                                                    href={crit[0]}
+                                                    href={criterion[0]}
                                                     rel="noreferrer"
                                                     target="_blank"
                                                 >
-                                                    {crit[1]}
+                                                    {criterion[1]}
                                                 </a>
                                             </ListItem>
                                         ))
