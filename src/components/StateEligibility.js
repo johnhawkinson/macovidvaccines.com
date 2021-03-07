@@ -82,9 +82,9 @@ export default function StateEligibility() {
                                 // However the interaction with fragments is unclear, so ensure
                                 // title fragments and listitems are unique, as they are siblings.
                                 <React.Fragment key={"title" + index}>
-                                    // We don't display a title for the first
-				    // group, for some reason...
                                     {group.title ? (
+                                        // We don't display a title for the first
+                                        // group, for some reason...
                                         <>
                                             <br />
                                             <br />
@@ -92,23 +92,20 @@ export default function StateEligibility() {
                                             <br />
                                         </>
                                     ) : null}
-                                    {
-                                        //
-                                        group.list.map((criterion, index) => (
-                                            <ListItem key={"item" + index}>
-                                                <ListItemIcon>
-                                                    <PeopleIcon />
-                                                </ListItemIcon>
-                                                <a
-                                                    href={criterion[0]}
-                                                    rel="noreferrer"
-                                                    target="_blank"
-                                                >
-                                                    {criterion[1]}
-                                                </a>
-                                            </ListItem>
-                                        ))
-                                    }
+                                    {group.list.map((criterion, index) => (
+                                        <ListItem key={"item" + index}>
+                                            <ListItemIcon>
+                                                <PeopleIcon />
+                                            </ListItemIcon>
+                                            <a
+                                                href={criterion[0]}
+                                                rel="noreferrer"
+                                                target="_blank"
+                                            >
+                                                {criterion[1]}
+                                            </a>
+                                        </ListItem>
+                                    ))}
                                 </React.Fragment>
                             );
                         })}
