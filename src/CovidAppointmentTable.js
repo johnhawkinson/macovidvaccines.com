@@ -56,7 +56,7 @@ export function sortAndFilterData(
     onlyShowAvailable
 ) {
     // Filter the locations that have "non-stale" data
-    const oldestGoodTimestamp = new Date() - tooStaleMinutes * 60 * 1000;
+    const oldestGoodTimestamp = new Date() - tooStaleMinutes * 10 * 1000;
     let filteredData = data.filter(
         ({ timestamp }) => !timestamp || timestamp >= oldestGoodTimestamp
     );
