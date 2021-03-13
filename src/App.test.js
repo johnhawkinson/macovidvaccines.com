@@ -48,6 +48,14 @@ describe("the App component", function () {
 
             expect(await screen.findAllByRole("listitem")).toHaveLength(3);
         });
+
+        test("it does NOT display an error message", async function () {
+            await act(async function () {
+                render(<App />);
+            });
+
+            expect(screen.queryByText("Unexpected Internal Error")).not.toBeInTheDocument();
+	});
     });
 
     describe("when no api data is available", function () {
